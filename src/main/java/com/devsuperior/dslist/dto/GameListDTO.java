@@ -1,0 +1,23 @@
+package com.devsuperior.dslist.dto;
+
+
+import com.devsuperior.dslist.entities.GameList;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class GameListDTO {
+    private Long id;
+    private String name;
+
+    public GameListDTO(GameList entity) {
+        id = entity.getId();
+        name = entity.getName();
+
+    }
+}
