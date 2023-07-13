@@ -1,9 +1,12 @@
 package com.devsuperior.dslist.dto;
 import com.devsuperior.dslist.entities.Game;
+import com.devsuperior.dslist.projections.GameMinProjection;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,6 +26,9 @@ public class GameMinDTO {
         year = entity.getYear();
         imgUrl = entity.getImgUrl();
         shortDescription = entity.getShortDescription();
+    }
+    public GameMinDTO(GameMinProjection projection) {
+        BeanUtils.copyProperties(projection,this);
     }
 
 }
